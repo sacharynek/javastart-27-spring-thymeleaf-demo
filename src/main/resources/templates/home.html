@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<ul>
+    <li th:each="meal: ${meals}" >
+        <span th:text="${meal.name}"></span>
+        <a th:href="|/edytuj?id=${meal.id}|">Edytuj</a>
+        <a th:href="|/usun?id=${meal.id}|">Usuń</a>
+    </li>
+</ul>
+
+</body>
+</html>

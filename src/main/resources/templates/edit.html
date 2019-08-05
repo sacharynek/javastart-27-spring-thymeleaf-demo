@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<p th:text="|Edytujesz posiłek o id: ${meal.id}|"></p>
+
+<form action="/edit" th:object="${meal}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    <input type="text" th:field="*{name}" />
+    <input type="number" th:field="*{price}" />
+    <select th:field="*{type}">
+        <option th:each="type: ${types}"
+        th:text="${type.name()}"
+        th:value="${type.name()}">
+        </option>
+    </select>
+    <input type="datetime-local" th:field="*{expirationDate}" />
+    <input type="submit" value="Zapisz zmiany" />
+</form>
+
+</body>
+</html>
